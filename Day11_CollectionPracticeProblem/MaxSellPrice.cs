@@ -23,13 +23,20 @@ namespace Day11_CollectionPracticeProblem
             data = Console.ReadLine().Split();
             int[] basket_B = data.Select(int.Parse).ToArray();
 
+            // sort array
+            Array.Sort(basket_A);
+            Array.Sort(basket_B);
+
             //swap
+            int count = basket_B.Length-1;
             for (int i = 0; i < k; i++)
             {
+                
                 int temp;
                 temp = basket_A[i];
-                basket_A[i] = basket_B[i];
-                basket_B[i] = temp;
+                basket_A[i] = basket_B[count];
+                basket_B[count] = temp;
+                count--;
             }
 
             Console.WriteLine("\nafter swaping basket A value is ");
